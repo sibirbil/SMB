@@ -6,7 +6,9 @@ import torch
 from torch.optim import Optimizer
 from typing import Iterable
 
-from utils import *
+from .utils import get_grad_list, compute_grad_norm
+
+
 
 ##############################################################################
 # SMB Optimizer
