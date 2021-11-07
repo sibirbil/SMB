@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Nov  7 10:40:22 2021
 
-@author: ozgurmartin
-"""
 
 import torch
 import torch.nn as nn
@@ -16,6 +12,24 @@ import matplotlib.pyplot as plt
 
 # In order to use GPU
 use_GPU = torch.cuda.is_available()
+
+##############################################################################
+# Function definitions (taken from https://github.com/IssamLaradji/sls/blob/master/sls/utils.py)
+##############################################################################
+
+
+
+def get_grad_list(params):
+    return [p.grad for p in params]
+
+def compute_grad_norm(grad_list):
+    grad_norm = 0.
+    for g in grad_list:
+        if g is None:
+            continue
+        grad_norm += torch.sum(torch.mul(g, g))
+    grad_norm = torch.sqrt(grad_norm)
+    return grad_norm
 
 
 ##############################################################################

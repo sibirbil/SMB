@@ -6,28 +6,7 @@ import torch
 from torch.optim import Optimizer
 from typing import Iterable
 
-
-##############################################################################
-# Function definitions (taken from https://github.com/IssamLaradji/sls/blob/master/sls/utils.py)
-##############################################################################
-
-
-
-def get_grad_list(params):
-    return [p.grad for p in params]
-
-def compute_grad_norm(grad_list):
-    grad_norm = 0.
-    for g in grad_list:
-        if g is None:
-            continue
-        grad_norm += torch.sum(torch.mul(g, g))
-    grad_norm = torch.sqrt(grad_norm)
-    return grad_norm
-
-#def get_lr(state, params):
-#    return max([state[p]['lr'] for p in params])
-
+from utils import *
 
 ##############################################################################
 # SMB Optimizer
