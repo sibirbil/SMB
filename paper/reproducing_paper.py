@@ -10,10 +10,10 @@ import datetime
 import numpy as np
 import json
 
-
-import sls
 import smb
 from smb import utils as ut
+import sls  # Install sls from https://github.com/IssamLaradji/sls
+
 
 ##############################################################################
 # OPTIONS
