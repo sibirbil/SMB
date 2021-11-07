@@ -13,7 +13,7 @@ import json
 
 import sls
 import smb
-from utils import *
+from smb import utils as ut
 
 ##############################################################################
 # OPTIONS
@@ -53,11 +53,6 @@ torch.cuda.manual_seed_all(seed)
 train_set, test_set, train_loader = get_dataset(dataset_name, batch_size)
 n_batches_per_epoch = len(train_loader)
 
- 
-# Get Model
-model = get_model(model_name)
-if use_GPU:
-    model.cuda()
 
 
 ##############################################################################
@@ -84,10 +79,15 @@ opt_out.update({'independent_batch':independent_batch,
            'data':dataset_name, 
            'model':model_name, 
            })
+
+# Get Model
+model = ut.get_model(model_name)
+if use_GPU:
+    model.cuda()
  
  
 # loss function
-criterion = softmax_loss
+criterion = ut.softmax_loss
  
 optimizer = smb.SMB(model.parameters(), 
                 lr=opt_out['lr'], 
@@ -130,8 +130,8 @@ for epoch in range(1, epochs+1):
         
     end = time.time()
         
-    train_loss = compute_loss(model, train_set)
-    test_acc = compute_accuracy(model, test_set)
+    train_loss = ut.compute_loss(model, train_set)
+    test_acc = ut.compute_accuracy(model, test_set)
         
     train_loss_list.append(train_loss)
     test_acc_list.append(test_acc)
@@ -174,9 +174,14 @@ opt_out = {'name':'SLS',
            'model':model_name, 
            }
 
+# Get Model
+model = ut.get_model(model_name)
+if use_GPU:
+    model.cuda()
+
  
 # loss function
-criterion = softmax_loss
+criterion = ut.softmax_loss
 
 
 optimizer = sls.Sls(model.parameters(), 
@@ -220,8 +225,8 @@ for epoch in range(1, epochs+1):
         
     end = time.time()
     
-    train_loss = compute_loss(model, train_set)
-    test_acc = compute_accuracy(model, test_set)
+    train_loss = ut.compute_loss(model, train_set)
+    test_acc = ut.compute_accuracy(model, test_set)
         
     train_loss_list.append(train_loss)
     test_acc_list.append(test_acc)
@@ -269,8 +274,13 @@ opt_out = {'name':'Adam',
            'model':model_name,
            } 
  
+# Get Model
+model = ut.get_model(model_name)
+if use_GPU:
+    model.cuda()
+
 # loss function
-criterion = softmax_loss
+criterion = ut.softmax_loss
 
 # optimizer
 optimizer = optim.Adam(model.parameters(), lr = opt_out['lr'])
@@ -310,8 +320,8 @@ for epoch in range(1, epochs+1):
     
     
     # Calculate metrics
-    train_loss = compute_loss(model, train_set)
-    test_acc = compute_accuracy(model, test_set)
+    train_loss = ut.compute_loss(model, train_set)
+    test_acc = ut.compute_accuracy(model, test_set)
     
     train_loss_list.append(train_loss)
     test_acc_list.append(test_acc)
@@ -350,9 +360,14 @@ opt_out = {'name':'SGD',
            'data':dataset_name, 
            'model':model_name,
            }
+
+# Get Model
+model = ut.get_model(model_name)
+if use_GPU:
+    model.cuda()
  
 # loss function
-criterion = softmax_loss
+criterion = ut.softmax_loss
 
 # optimizer
 optimizer = optim.SGD(model.parameters(), lr = opt_out['lr'])
@@ -391,8 +406,8 @@ for epoch in range(1, epochs+1):
     
     
     # Calculate metrics
-    train_loss = compute_loss(model, train_set)
-    test_acc = compute_accuracy(model, test_set)
+    train_loss = ut.compute_loss(model, train_set)
+    test_acc = ut.compute_accuracy(model, test_set)
     
     train_loss_list.append(train_loss)
     test_acc_list.append(test_acc)
