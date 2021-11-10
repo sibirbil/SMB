@@ -14,7 +14,7 @@ import smb
 #### 2. Usage. 
 Essentially, the algoritm progress by executing a step via `SGD` then checks the Armijo conditions: in case they are not satisfied it builds an auxillary model to tune the learning rate and the direction of the next step accordingly. This model based update can be done in two ways: either on can use the current batch or by taking another *independent* batch. The user has to choose this option by initializing the hyperparameter `independent_batch`. Note that SMB needs also a closure function.
 
-A minimal example of a piece of code to train your model is as follows (see tutorial.ipynb for a complete example)
+A minimal example of a piece of code to train your model is as follows (see `tutorial.ipynb` for a complete example)
 ```python
 independent_batch = False
 autoschedule = False
