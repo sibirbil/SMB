@@ -1,6 +1,6 @@
 ### SMB
 
-Sochastic gradient descent with model building. Train your network with a fast and robust optimizer. 
+Stochastic gradient descent with model building. Train your network with a fast and robust optimizer.  The details of the algorithm is given in the paper by Birbil et al. (2021).
 
   
  
@@ -37,3 +37,7 @@ for epoch in range(100):
         # forward pass
         loss = optimizer.step(closure=closure)
 ```
+
+#### 3. Experiments. 
+
+See `smb/paper/reproducing_paper.py` in order to reproduce the results in the paper. 
