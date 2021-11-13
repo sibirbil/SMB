@@ -20,17 +20,8 @@ A minimal example of a piece of code to train your model is as follows (see `smb
 
 import smb
 
-independent_batch = False  #Set to True for SMBi optimizer
-autoschedule = False
-
-
-# You have to define your model or you can use one of the models from smb/utils.py by importing 
-# from smb import utils as ut
-# then set 
-# model = ut.get_model(model_name)
-
  
-optimizer = smb.SMB(model.parameters())
+optimizer = smb.SMB(model.parameters(), independent_batch=False) #independent_batch=True for SMBi optimizer
 
 
 for epoch in range(1, epochs+1):
@@ -43,7 +34,7 @@ for epoch in range(1, epochs+1):
         # create loss closure for smb algorithm
         def closure():
             optimizer.zero_grad()
-            loss = criterion(model, data, target)
+            loss = torch.nn.CrossEntropyLoss((model(data), target)
             return loss
         
         # forward pass
