@@ -4,7 +4,9 @@ Sochastic gradient descent with model building. Train your network with a fast a
 
   
  
-#### 1. Installation. `pip install git+https://github.com/sbirbil/SMB.git`
+#### 1. Installation. 
+
+`pip install git+https://github.com/sbirbil/SMB.git`
 
 Then you can import as 
 ```python
