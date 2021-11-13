@@ -42,4 +42,4 @@ for epoch in range(100):
 
 ## Experiments in Our Paper 
 
-See the [code snippet](smb/paper/reproducing_paper.py) in order to reproduce the results in the paper. 
+See the [code snippet](smb/paper/reproducing_paper.py) in order to reproduce the results in our [paper](http://www.optimization-online.org/DB_HTML/2021/11/8683.html). 
