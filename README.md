@@ -24,7 +24,7 @@ import smb
 optimizer = smb.SMB(model.parameters(), independent_batch=False) #independent_batch=True for SMBi optimizer
 
 
-for epoch in range(1, epochs+1):
+for epoch in range(100):
     
     # training steps
     model.train()
