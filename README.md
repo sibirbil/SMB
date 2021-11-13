@@ -40,6 +40,6 @@ for epoch in range(100):
         loss = optimizer.step(closure=closure)
 ```
 
-## Experiments in Our Paper 
+## Reproducing The Experiments 
 
 See the following [script](smb/paper/reproducing_paper.py) in order to reproduce the results in our [paper](http://www.optimization-online.org/DB_HTML/2021/11/8683.html). 
