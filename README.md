@@ -15,7 +15,7 @@ _Keywords_: model building; second-order information; stochastic gradient descen
 
 ## Testing
 
-Here is how you can use SMB (see our [tutorial](https://github.com/sibirbil/SMB/blob/main/tutorial.ipynb) for a complete example). Set the hyper-parameter `independent_batch` to `True` in order to use the `SMBi` optimizer. Our [paper](http://www.optimization-online.org/DB_HTML/2021/11/8683.html) includes more information.
+Here is how you can use SMB:
 
 ```python
 
@@ -39,6 +39,8 @@ for epoch in range(100):
         # forward pass
         loss = optimizer.step(closure=closure)
 ```
+
+You can also check our [tutorial](https://github.com/sibirbil/SMB/blob/main/tutorial.ipynb) for a complete example (or the [Colab notebook](https://colab.research.google.com/drive/1wjUmy8-PmkBpnXxGKKEgSgmwN-VYY1xD#scrollTo=2skrH1RF_cbu) without installation). Set the hyper-parameter `independent_batch` to `True` in order to use the `SMBi` optimizer. Our [paper](http://www.optimization-online.org/DB_HTML/2021/11/8683.html) includes more information. 
 
 ## Reproducing The Experiments 
 
