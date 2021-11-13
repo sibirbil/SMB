@@ -1,6 +1,6 @@
 ### SMB
 
-Stochastic gradient descent with model building. Train your network with a fast and robust optimizer.  The details of the algorithm is given in the paper by Birbil et al. (2021).
+Stochastic gradient descent with model building. Train your network with a fast and robust optimizer.  The details of the algorithm is given in the paper by [Birbil et al. (2021)](http://www.optimization-online.org/DB_HTML/2021/11/8683.html).
 
   
  
