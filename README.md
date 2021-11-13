@@ -15,7 +15,7 @@ _Keywords_: model building; second-order information; stochastic gradient descen
 
 ## Testing
 
-Use SMB in your code as follows (see our [tutorial](smb/tutorial.ipynb) for a complete example). Set the hyper-parameter `independent_batch` to `True` in order to use the `SMBi` optimizer. Our [paper](http://www.optimization-online.org/DB_HTML/2021/11/8683.html) includes more information.
+Here is how you can use SMB (see our [tutorial](smb/tutorial.ipynb) for a complete example). Set the hyper-parameter `independent_batch` to `True` in order to use the `SMBi` optimizer. Our [paper](http://www.optimization-online.org/DB_HTML/2021/11/8683.html) includes more information.
 
 ```python
 
