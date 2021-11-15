@@ -33,7 +33,7 @@ for epoch in range(100):
         # create loss closure for smb algorithm
         def closure():
             optimizer.zero_grad()
-            loss = torch.nn.CrossEntropyLoss((model(data), target)
+            loss = torch.nn.CrossEntropyLoss(model(data), target)
             return loss
         
         # forward pass
