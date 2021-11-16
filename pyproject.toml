@@ -1,6 +1,26 @@
-[build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
+[tool.poetry]
+name = "smb-optimizer"
+version = "0.1.1"
+description = "Implementation for Pytorch of the method described in our paper \"Bolstering Stochastic Gradient Descent with Model Building\", S. Ilker Birbil, Ozgur Martin, Gonenc Onay, Figen Oztoprak, 2021 (see https://arxiv.org/abs/2111.07058)"
+authors = ["Ilker BIRBIL <s.i.birbil@uva.nl>", "Ozgur Martin <ozgurmartin@gmail.com>"]
+license = "MIT"
+packages = [
+    { include = "smb"}
 ]
-build-backend = "setuptools.build_meta"
+readme = "README.md"
+homepage = "https://github.com/sibirbil/SMB"
+
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.11"
+matplotlib = ">=3.4.3"
+numpy = ">=1.21.4"
+torch = ">=1.10.0"
+torchvision = ">=0.11.1"
+
+[tool.poetry.dev-dependencies]
+jupyterlab = "^3.2.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
