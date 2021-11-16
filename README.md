@@ -46,4 +46,4 @@ You can also check our [tutorial](https://github.com/sibirbil/SMB/blob/main/tuto
 
 ## Reproducing The Experiments 
 
-See the following [script](smb/paper/reproducing_paper.py) in order to reproduce the results in our [paper](http://www.optimization-online.org/DB_HTML/2021/11/8683.html). 
+See the following [script](smb/paper/reproducing_paper.py) in order to reproduce the results in our [paper](https://arxiv.org/abs/2111.07058).
