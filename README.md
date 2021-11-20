@@ -13,7 +13,7 @@ _Keywords_: model building; second-order information; stochastic gradient descen
 
 ## Installation
 
-`pip install git+https://github.com/sbirbil/SMB.git`
+`pip install git+https://github.com/sibirbil/SMB.git`
 
 ## Testing
 
