@@ -50,7 +50,7 @@ torch.cuda.manual_seed_all(seed)
     
 
 # Get Dataset
-train_set, test_set, train_loader = get_dataset(dataset_name, batch_size)
+train_set, test_set, train_loader = ut.get_dataset(dataset_name, batch_size)
 n_batches_per_epoch = len(train_loader)
 
 
