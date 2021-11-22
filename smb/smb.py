@@ -6,8 +6,20 @@ import torch
 from torch.optim import Optimizer
 from typing import Iterable
 
-from .utils import get_grad_list, compute_grad_norm
 
+##############################################################################
+
+def get_grad_list(params):
+    return [p.grad for p in params]
+
+def compute_grad_norm(grad_list):
+    grad_norm = 0.
+    for g in grad_list:
+        if g is None:
+            continue
+        grad_norm += torch.sum(torch.mul(g, g))
+    grad_norm = torch.sqrt(grad_norm)
+    return grad_norm
 
 
 ##############################################################################
@@ -57,7 +69,7 @@ class SMB(Optimizer):
             
             return self.step_smb(closure)
             
-        
+      
     def step_smb(self, closure):
         
         if len(self.state) == 0:
@@ -100,16 +112,14 @@ class SMB(Optimizer):
                 if p.grad is None:
                     continue    
                     
-                grad = p.grad.data
-                state["grad_old"] = grad.clone().detach()
+                state["grad_old"] = p.grad.clone().detach()
                 
-                if grad.is_sparse:
+                if p.grad.is_sparse:
                     raise RuntimeError("SMB does not support sparse gradients")
                 
-                s_new = grad.mul(-lr)
-                state["s_old"] = s_new.clone().detach()
+                state["s_old"] = p.grad.mul(-lr).clone().detach()
                 
-                p.data.add_(s_new, alpha=1.0)
+                p.data.add_(p.grad, alpha=-lr)
                 
             
             loss_next = closure()
@@ -124,13 +134,14 @@ class SMB(Optimizer):
                 else:
                         
                     loss_next.backward()
+                    
     
                     for p in group["params"]:
     
                         state = self.state[p]
     
                         grad = state["grad_old"]
-                        grad_t = p.grad.data
+                        grad_t = p.grad
     
                         s_old = state["s_old"]
     
@@ -174,7 +185,12 @@ class SMB(Optimizer):
                 elif group["lr"]/beta <= lr_max:
                     group["lr"] /= beta
                 self.state['model_step_list'] = []
-                
+            
+            if len(self.state['model_step_list']) == group["n_batches_per_epoch"]:
+                print("model step ratio:", sum(self.state['model_step_list']) / len(self.state['model_step_list'])) 
+                self.state['model_step_list'] = []
+            
+               
                      
         self.state['step'] += 1
         
@@ -332,6 +348,52 @@ class SMB(Optimizer):
     
     
     
+class SGD_ozg(Optimizer):
+    def __init__(
+        self,
+        params: Iterable[torch.nn.parameter.Parameter],
+        lr: float = 0.1
+    ):
+        defaults = dict(lr=lr)
+        super().__init__(params, defaults)
+        
+        
+    def step(self):
+        
+        loss = None
+    
+        
+        for group in self.param_groups:
+            
+            lr =  group["lr"] 
+            
+            params = group["params"]
+            
+            
+            for p in params:
+                
+                state = self.state[p]
+                
+                
+                if p.grad is None:
+                    continue   
+                
+                #s_new = p.grad.mul(-lr).clone().detach()
+                #p.data.add_(s_new, alpha=1.0)
+                
+                #print(torch.norm(p.data.add(p.grad, alpha=-lr)), torch.norm(p.data.add(s_new, alpha=1.0)))
+                    
+                
+                p.data.add_(p.grad, alpha=-lr)
+        
+                
+        return loss
+    
+
+                
+                
+        
+        
 
 
 
