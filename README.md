@@ -92,3 +92,5 @@ Here optional integer valued --epochs option can be added to restrict range to [
 $ plot_smb_experiments -i path_to_experiment_results_folder --epochs 50 --opts SLS ADAM SMB
 ```
 
+**From Colab.**
+Follow instructions from this [notebook](https://colab.research.google.com/drive/1CsrE7Bu_I7gGuIIlGMir_KT1rQzKHC9c?usp=sharing)
