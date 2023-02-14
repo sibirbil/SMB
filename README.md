@@ -10,7 +10,6 @@ Stochastic gradient descent method and its variants constitute the core optimiza
 
 _Keywords_: model building; second-order information; stochastic gradient descent; convergence analysis
 
-
 ## Installation
 
 `pip install git+https://github.com/sibirbil/SMB.git`
