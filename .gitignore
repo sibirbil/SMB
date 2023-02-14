@@ -1,0 +1,10 @@
+/env
+/archive/
+/tmp/
+*.xml
+*.iml
+.idea/
+/Datasets/
+*.pyc
+*__pycache__/
+*ipynb*

@@ -1,0 +1,27 @@
+epochs: 1
+optimizers: #benchmarking optimizers
+  SMB:
+    lr: 0.5
+    eta: 0.99
+    c: 0.1
+    independent_batch:
+      - true
+      - false
+    autoschedule: false
+    gamma: 0.05
+    beta: 0.9
+    lr_max: 20
+  SLS:
+    c: 0.1
+    reset_option: 1
+    init_step_size: 1
+  ADAM:
+    lr: 0.001
+  SGD:
+    lr: 0.1
+preconfigs: #dataset and models
+  - - mnist
+    - mlp
+seed: 42
+n_train_samples: 2 #size of the subset of the dataset to load for training
+batch_size: 2
