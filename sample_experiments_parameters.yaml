@@ -1,17 +1,6 @@
-epochs: 0
+epochs: 1
 optimizers: #benchmarking optimizers
   SMB:
-    lr: 0.5
-    eta: 0.99
-    c: 0.1
-    independent_batch:
-      - true
-      - false
-    autoschedule: false
-    gamma: 0.05
-    beta: 0.9
-    lr_max: 20
-  SMB_DIAG:
     lr: 0.5
     eta: 0.99
     c: 0.1
@@ -33,22 +22,22 @@ optimizers: #benchmarking optimizers
 preconfigs: #dataset and models
   - - mnist
     - mlp
-#  - - cifar10
-#    - resnet34_10
-#  - - cifar10
-#    - densenet10
-#  - - cifar100
-#    - resnet34_100
-#  - - cifar100
-#    - densenet100
-#  - - cifar10
-#    - vgg16
-#  - - cifar10
-#    - mobilenet
-#  - - cifar10
-#    - dla
-#  - - cifar10
-#    - dpn92
+  - - cifar10
+    - resnet34_10
+  - - cifar10
+    - densenet10
+  - - cifar100
+    - resnet34_100
+  - - cifar100
+    - densenet100
+  - - cifar10
+    - vgg16
+  - - cifar10
+    - mobilenet
+  - - cifar10
+    - dla
+  - - cifar10
+    - dpn92
 seed: 42
-n_train_samples: 4 #size of the subset of the dataset to load for training,
-batch_size: 2
+# n_train_samples: 4 #size of the subset of the dataset to load for training if uncommented
+batch_size: 128
