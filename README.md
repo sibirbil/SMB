@@ -2,7 +2,7 @@
 
 This repository includes a new fast and robust stochastic optimization algorithm for training deep learning models. The
 core idea of the algorithm is based on building models with local stochastic gradient information. The details of the
-algorithm is given in our [recent paper](https://arxiv.org/abs/2111.07058).
+algorithm is given in our [recent paper](/.paper/smb.pdf).
 
 ![smb_recap](./img/SMB_vs_SGD_and_Adam.png)
 
