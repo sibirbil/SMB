@@ -2,7 +2,7 @@
 
 This repository includes a new fast and robust stochastic optimization algorithm for training deep learning models. The
 core idea of the algorithm is based on building models with local stochastic gradient information. The details of the
-algorithm is given in our [recent paper](./paper/smb.pdf).
+algorithm is given in our [paper](https://arxiv.org/abs/2111.07058).
 
 ![smb_recap](./img/SMB_vs_SGD_and_Adam.png)
 
@@ -54,7 +54,8 @@ for epoch in range(100):
 ```
 
 Set the hyper-parameter `independent_batch` to `True` in order to use the `SMBi` optimizer.
-Our [paper](http://www.optimization-online.org/DB_HTML/2021/11/8683.html) includes more information.
+Our [paper](https://arxiv.org/abs/2111.07058) includes more information.
+
 ## Testing
 ### Reproducing paper experiments
 This will run all optimizers on Cifar100 dataset for 200 epochs with densenet121 network. 
